@@ -21,7 +21,7 @@ repository               : "stefanosleonardos/stefanosleonardos.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "Stefanos.JPEG"
   name             : "Stefanos Leonardos"
   pronouns         : # example: "she/her"  
   bio              : "Lecturer in machine learning"
