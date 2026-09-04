@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stefanos Leonardos</title>
+<meta name="description" content="Stefanos Leonardos is Senior Lecturer in Machine Learning at King's College London, working on game theory, multi-agent learning, LLM agents and the economics of digital markets.">
+<meta name="author" content="Stefanos Leonardos">
+<link rel="canonical" href="https://stefanosleonardos.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Stefanos Leonardos">
+<meta property="og:description" content="Senior Lecturer in Machine Learning, King's College London. Game theory, multi-agent learning, LLM agents, and the economics of digital markets.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stefanos Leonardos",
+  "jobTitle": "Senior Lecturer in Machine Learning",
+  "email": "mailto:stefanos.leonardos@kcl.ac.uk",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "King's College London",
+    "department": "Department of Informatics"
+  },
+  "knowsAbout": ["Game Theory", "Multi-Agent Reinforcement Learning", "Large Language Model Agents", "Market Design", "Cryptoeconomics", "Machine Learning"],
+  "sameAs": ["https://scholar.google.com/citations?user=PtiGrVsAAAAJ"]
+}
+</script>
+<style>
+:root{
+  --paper:#F5F7F5;
+  --surface:#FFFFFF;
+  --ink:#151E1B;
+  --ink-soft:#3D4B47;
+  --muted:#6E7D78;
+  --line:#DBE2DE;
+  --accent:#1B6A57;
+  --accent-soft:#E4EEEA;
+  --gold:#8A6D24;
+  --shadow:0 1px 2px rgba(21,30,27,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1614;
+    --surface:#151F1C;
+    --ink:#E6EBE8;
+    --ink-soft:#B6C2BD;
+    --muted:#849690;
+    --line:#26332F;
+    --accent:#5CBFA2;
+    --accent-soft:#17302A;
+    --gold:#C9A95C;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1614;
+  --surface:#151F1C;
+  --ink:#E6EBE8;
+  --ink-soft:#B6C2BD;
+  --muted:#849690;
+  --line:#26332F;
+  --accent:#5CBFA2;
+  --accent-soft:#17302A;
+  --gold:#C9A95C;
+  --shadow:none;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.shell{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 28px;
+  display:grid;
+  grid-template-columns:270px 1fr;
+  gap:64px;
+  align-items:start;
+}
+
+/* ---------- identity rail ---------- */
+.rail{position:sticky;top:0;padding:56px 0 40px;display:flex;flex-direction:column;gap:26px}
+.namemark{display:flex;flex-direction:column;gap:2px}
+.namemark h1{
+  font-family:Newsreader,Georgia,"Times New Roman",serif;
+  font-weight:500;
+  font-size:32px;
+  line-height:1.12;
+  letter-spacing:-.015em;
+  margin:0;
+  text-wrap:balance;
+}
+.namemark .role{color:var(--ink-soft);font-size:14.5px;line-height:1.45;margin-top:10px}
+.namemark .role em{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--ink)}
+
+.roles{display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:var(--ink-soft);line-height:1.4}
+.roles div{padding-left:13px;position:relative}
+.roles div::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--accent)}
+
+nav{display:flex;flex-direction:column;gap:1px;border-top:1px solid var(--line);padding-top:16px}
+nav a{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);padding:5px 0;border:0;
+}
+nav a:hover{color:var(--accent);border:0}
+
+.contact{border-top:1px solid var(--line);padding-top:16px;font-size:13.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:5px}
+.contact .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- main ---------- */
+main{padding:56px 0 96px;max-width:680px;display:flex;flex-direction:column;gap:56px}
+section{scroll-margin-top:32px}
+h2{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--line);
+}
+p{margin:0 0 15px;color:var(--ink-soft)}
+p:last-child{margin-bottom:0}
+.lede{
+  font-family:Newsreader,Georgia,serif;
+  font-size:20.5px;line-height:1.55;color:var(--ink);margin-bottom:18px;text-wrap:pretty;
+}
+
+/* research themes — definition list, not cards */
+.themes{display:flex;flex-direction:column;gap:0;margin:0}
+.theme{display:grid;grid-template-columns:184px 1fr;gap:24px;padding:15px 0;border-bottom:1px solid var(--line)}
+.theme:last-child{border-bottom:0}
+.theme dt{font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.4}
+.theme dd{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* publications */
+.pubs{display:flex;flex-direction:column}
+.pub{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pub:last-child{border-bottom:0}
+.yr{
+  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);
+  padding-top:3px;font-variant-numeric:tabular-nums;
+}
+.pub .t{font-size:15px;color:var(--ink);line-height:1.45;font-weight:500;text-wrap:pretty}
+.pub .m{font-size:13.5px;color:var(--muted);line-height:1.5;margin-top:3px}
+.pub .m .venue{color:var(--ink-soft)}
+.cites{
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.award{
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--gold);white-space:nowrap;
+}
+.sep{color:var(--line)}
+
+.more{margin-top:20px;font-size:14px}
+
+/* awards + service lists */
+.stack{display:flex;flex-direction:column;gap:0}
+.row{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.row:last-child{border-bottom:0}
+.row .yr{padding-top:1px}
+.row .d{color:var(--ink-soft);line-height:1.5}
+.row .d strong{color:var(--ink);font-weight:600}
+
+/* students callout — the one lifted element */
+.callout{
+  background:var(--surface);border:1px solid var(--line);border-left:2px solid var(--accent);
+  padding:22px 24px;box-shadow:var(--shadow);
+}
+.callout p{margin-bottom:12px}
+.callout p:last-child{margin-bottom:0}
+.projects{display:flex;flex-direction:column;gap:9px;margin:14px 0}
+.projects div{font-size:14.5px;color:var(--ink);padding-left:15px;position:relative;line-height:1.45}
+.projects div::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
+
+footer{
+  border-top:1px solid var(--line);padding-top:18px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--muted);
+}
+
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr;gap:0;padding:0 22px}
+  .rail{position:static;padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  nav{flex-flow:row wrap;gap:16px;border-top:1px solid var(--line)}
+  nav a{padding:0}
+  main{padding:36px 0 72px;gap:44px}
+  .theme{grid-template-columns:1fr;gap:3px}
+  .pub,.row{grid-template-columns:44px 1fr;gap:14px}
+  .namemark h1{font-size:29px}
+  .lede{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="rail">
+    <div class="namemark">
+      <h1>Stefanos Leonardos</h1>
+      <div class="role">Senior Lecturer in Machine Learning<br>Department of Informatics, <em>King's College London</em></div>
+    </div>
+
+    <div class="roles">
+      <div>Director, MAASAI Lab</div>
+      <div>Co-Director, Informatics Finance Hub</div>
+      <div>Distributed AI Group &amp; King's Institute for AI</div>
+    </div>
+
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#students">Prospective students</a>
+      <a href="#service">Service</a>
+    </nav>
+
+    <div class="contact">
+      <span class="k">Contact</span>
+      <a href="mailto:stefanos.leonardos@kcl.ac.uk">stefanos.leonardos@kcl.ac.uk</a>
+      <span>Bush House (S)5.13, Strand Campus</span>
+      <span class="k" style="margin-top:9px">Elsewhere</span>
+      <a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ">Google Scholar</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="about">
+      <p class="lede">I work on how learning agents behave when they meet each other — in games, in markets, and increasingly when those agents are language models.</p>
+      <p>My research sits between game theory and machine learning. On the theory side I study learning dynamics in multi-agent systems: when they converge, when they descend into chaos, and what equilibrium selection looks like in practice. On the applied side I use those tools to study digital markets — transaction fee mechanisms, block building auctions, market making and liquidity provision — where strategic agents interact at scale and the mechanism itself is up for design.</p>
+      <p>Before King's I spent four years as a research fellow at the Singapore University of Technology and Design, working with Georgios Piliouras. My PhD is in game theory, from the University of Athens, advised by Costis Melolidakis.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <dl class="themes">
+        <div class="theme">
+          <dt>Multi-agent learning</dt>
+          <dd>Convergence, chaos and equilibrium selection in learning dynamics; policy gradient methods in Markov potential games; no-regret learning beyond worst-case bounds.</dd>
+        </div>
+        <div class="theme">
+          <dt>LLM agents</dt>
+          <dd>Strategic behaviour of language-model agents in interactive settings, curriculum design for LLM-based multi-agent systems, and what game theory can say about aligning them.</dd>
+        </div>
+        <div class="theme">
+          <dt>Market &amp; mechanism design</dt>
+          <dd>Transaction fee mechanisms, block building auctions, maximal extractable value, and the centralisation pressures that emerge from ostensibly open market infrastructure.</dd>
+        </div>
+        <div class="theme">
+          <dt>Financial markets</dt>
+          <dd>Reinforcement learning for market making and liquidity provision, cryptocurrency price dynamics, and the systemic behaviour of learning agents in financial systems.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="publications">
+      <h2>Selected publications</h2>
+      <div class="pubs">
+
+        <article class="pub"><div class="yr">2026</div><div>
+          <div class="t">Concentrated Liquidity Provision: A Reinforcement Learning Perspective</div>
+          <div class="m">with G. Chionas, C. Kleitsikas, L. Sánchez-Betancourt, C. Ventre <span class="sep">·</span> <span class="venue">Preprint</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2026</div><div>
+          <div class="t">The Price of Decentralization in Block Building</div>
+          <div class="m">with F. Wu, B. Öz, L. Correia, S. Yang, B. Mazorra <span class="sep">·</span> <span class="venue">AFT</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2026</div><div>
+          <div class="t">Dynamics of Ethereum's EIP-1559 Transaction Fee Mechanism</div>
+          <div class="m">with D. Reijsbergen, B. Monnot, G. Piliouras <span class="sep">·</span> <span class="venue">Distributed Ledger Technologies</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2026</div><div>
+          <div class="t">STAR-MARL: LLM-based Sub-task Curricula Design</div>
+          <div class="m">with Z. Li, D. Qiao, A. Rahman, Y. Du, S. V. Albrecht <span class="sep">·</span> <span class="venue">LLM-based Multi-Agent Systems Workshop</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2025</div><div>
+          <div class="t">Performative Market Making</div>
+          <div class="m">with C. Kleitsikas, C. Ventre <span class="sep">·</span> <span class="venue">Preprint</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2025</div><div>
+          <div class="t">From Competition to Centralization: The Oligopoly in Ethereum Block Building Auctions</div>
+          <div class="m">with F. Wu, T. Thiery, C. Ventre <span class="sep">·</span> <span class="venue">ECAI</span> <span class="sep">·</span> <span class="cites">8 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2025</div><div>
+          <div class="t">Asymptotic Extinction in Large Coordination Games</div>
+          <div class="m">with D. Chan, B. De Keijzer, T. Galla, C. Ventre <span class="sep">·</span> <span class="venue">AAAI</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2024</div><div>
+          <div class="t">Strategic Bidding Wars in On-chain Auctions</div>
+          <div class="m">with F. Wu, T. Thiery, C. Ventre <span class="sep">·</span> <span class="venue">IEEE ICBC</span> <span class="sep">·</span> <span class="cites">34 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2024</div><div>
+          <div class="t">Selfishness Level Induces Cooperation in Sequential Social Dilemmas</div>
+          <div class="m">with S. Roesch, Y. Du <span class="sep">·</span> <span class="venue">AAMAS</span> <span class="sep">·</span> <span class="cites">13 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2024</div><div>
+          <div class="t">Beating Price of Anarchy and Gradient Descent without Regret in Potential Games</div>
+          <div class="m">with I. Sakos, S. Stavroulakis, W. Overman, I. Panageas, G. Piliouras <span class="sep">·</span> <span class="venue">ICLR</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2024</div><div>
+          <div class="t">To Compete or Collude: Bidding Incentives in Ethereum Block Building Auctions</div>
+          <div class="m">with F. Wu, T. Thiery, C. Ventre <span class="sep">·</span> <span class="venue">ACM ICAIF</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2023</div><div>
+          <div class="t">AlberDICE: Addressing Out-of-Distribution Joint Actions in Offline Multi-Agent RL</div>
+          <div class="m">with D. E. Matsunaga, J. Lee, J. Yoon, P. Abbeel, K.-E. Kim <span class="sep">·</span> <span class="venue">NeurIPS</span> <span class="sep">·</span> <span class="cites">13 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2023</div><div>
+          <div class="t">Catastrophe by Design in Population Games: A Mechanism to Destabilize Inefficient Locked-in Technologies</div>
+          <div class="m">with J. Sakos, C. Courcoubetis, G. Piliouras <span class="sep">·</span> <span class="venue">ACM TEAC</span> <span class="sep">·</span> <span class="award">Editors-in-Chief selection</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2022</div><div>
+          <div class="t">Global Convergence of Multi-Agent Policy Gradient in Markov Potential Games</div>
+          <div class="m">with W. Overman, I. Panageas, G. Piliouras <span class="sep">·</span> <span class="venue">ICLR</span> <span class="sep">·</span> <span class="cites">224 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2022</div><div>
+          <div class="t">Exploration-Exploitation in Multi-Agent Learning: Catastrophe Theory Meets Game Theory</div>
+          <div class="m">with G. Piliouras <span class="sep">·</span> <span class="venue">Artificial Intelligence</span> <span class="sep">·</span> <span class="award">AAAI-21 Outstanding Paper</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2022</div><div>
+          <div class="t">Optimality Despite Chaos in Fee Markets</div>
+          <div class="m">with D. Reijsbergen, B. Monnot, G. Piliouras <span class="sep">·</span> <span class="venue">Financial Cryptography</span> <span class="sep">·</span> <span class="cites">42 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2021</div><div>
+          <div class="t">Dynamical Analysis of the EIP-1559 Ethereum Fee Market</div>
+          <div class="m">with B. Monnot, D. Reijsbergen, S. Skoulakis, G. Piliouras <span class="sep">·</span> <span class="venue">ACM AFT</span> <span class="sep">·</span> <span class="cites">110 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2021</div><div>
+          <div class="t">Exploration-Exploitation in Multi-Agent Competition: Convergence with Bounded Rationality</div>
+          <div class="m">with G. Piliouras, K. Spendlove <span class="sep">·</span> <span class="venue">NeurIPS</span> <span class="sep">·</span> <span class="cites">57 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2019</div><div>
+          <div class="t">Incentives in Ethereum's Hybrid Casper Protocol</div>
+          <div class="m">with V. Buterin, D. Reijsbergen, G. Piliouras <span class="sep">·</span> <span class="venue">IEEE ICBC</span> <span class="sep">·</span> <span class="cites">161 citations</span></div>
+        </div></article>
+
+        <article class="pub"><div class="yr">2019</div><div>
+          <div class="t">Weighted Voting on the Blockchain: Improving Consensus in Proof of Stake Protocols</div>
+          <div class="m">with D. Reijsbergen, G. Piliouras <span class="sep">·</span> <span class="venue">IEEE ICBC</span> <span class="sep">·</span> <span class="award">Best Paper</span></div>
+        </div></article>
+
+      </div>
+      <p class="more"><a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ">Full publication list on Google Scholar →</a></p>
+    </section>
+
+    <section id="awards">
+      <h2>Awards</h2>
+      <div class="stack">
+        <div class="row"><div class="yr">2023</div><div class="d"><strong>Editors-in-Chief selection</strong>, ACM Transactions on Economics and Computation</div></div>
+        <div class="row"><div class="yr">2021</div><div class="d"><strong>Outstanding Paper Award</strong>, AAAI</div></div>
+        <div class="row"><div class="yr">2020</div><div class="d"><strong>Best Paper Award</strong>, IEEE Transactions on Engineering Management</div></div>
+        <div class="row"><div class="yr">2020</div><div class="d"><strong>Best Paper Award</strong>, Decentralized</div></div>
+        <div class="row"><div class="yr">2019</div><div class="d"><strong>Best Paper Award</strong>, IEEE International Conference on Blockchain and Cryptocurrency</div></div>
+        <div class="row"><div class="yr">2019</div><div class="d"><strong>Best Paper Award</strong>, MARBLE</div></div>
+      </div>
+    </section>
+
+    <section id="students">
+      <h2>Prospective students</h2>
+      <div class="callout">
+        <p>I supervise PhD students in the MAASAI Lab and the Informatics Finance Hub. There are no funded positions open at present, but I am glad to hear from strong externally funded and self-funded candidates.</p>
+        <p>Two projects are currently advertised through the department:</p>
+        <div class="projects">
+          <div>Multi-Agent Learning with Large Language Models</div>
+          <div>AI and Machine Learning for Financial Markets</div>
+        </div>
+        <p>I also supervise MSc and BSc theses in game theory, multi-agent systems, reinforcement learning and mechanism design. Office hours are Mondays 15:00–16:00 — please email ahead.</p>
+      </div>
+    </section>
+
+    <section id="service">
+      <h2>Service</h2>
+      <div class="stack">
+        <div class="row"><div class="yr">2025</div><div class="d"><strong>Area Chair</strong>, ICML</div></div>
+        <div class="row"><div class="yr">2024</div><div class="d"><strong>Area Chair</strong>, NeurIPS</div></div>
+        <div class="row"><div class="yr">2024</div><div class="d"><strong>Guest Editor</strong>, ACM Distributed Ledger Technologies — special issue on Mathematical Research for Blockchain Economy</div></div>
+        <div class="row"><div class="yr">2022</div><div class="d"><strong>TPC Co-chair</strong>, MARBLE</div></div>
+        <div class="row"><div class="yr">—</div><div class="d"><strong>Programme Committee</strong>: AAAI, IJCAI, AAMAS (senior), EC, WINE, SAGT, Financial Cryptography, ICDCS</div></div>
+      </div>
+    </section>
+
+    <footer>Last updated September 2026</footer>
+
+  </main>
+</div>
+</body>
+</html>
