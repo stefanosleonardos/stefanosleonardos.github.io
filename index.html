@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stefanos Leonardos</title>
 <meta name="description" content="Stefanos Leonardos, Senior Lecturer in Machine Learning at King's College London. Multi-agent learning, reinforcement learning, game theory and AI for financial markets. Information for students, teaching, publications and CV.">
-<meta property="og:title" content="Stefanos Leonardos">
-<meta property="og:description" content="Senior Lecturer in Machine Learning, King's College London. Multi-agent learning, game theory, AI for financial markets.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://stefanosleonardos.github.io/">
-<meta property="og:image" content="https://stefanosleonardos.github.io/photo.jpg">
+<meta name="author" content="Stefanos Leonardos">
 <link rel="canonical" href="https://stefanosleonardos.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Stefanos Leonardos">
+<meta property="og:description" content="Senior Lecturer in Machine Learning, King's College London. Game theory, multi-agent learning, LLM agents, and the economics of digital markets.">
+<meta property="og:url" content="https://stefanosleonardos.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,259 +44,339 @@
 </script>
 <style>
 :root{
-  --bg:#FFFFFF; --ink:#1C2128; --soft:#444C56; --muted:#6B7480; --line:#E3E7EC;
-  --accent:#2F68A8; --tint:#F2F6FB; --gold:#8A6510;
+  --paper:#F5F7F5;
+  --surface:#FFFFFF;
+  --ink:#151E1B;
+  --ink-soft:#3D4B47;
+  --muted:#6E7D78;
+  --line:#DBE2DE;
+  --accent:#1B6A57;
+  --gold:#8A6D24;
+  --shadow:0 1px 2px rgba(21,30,27,.05);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#121519; --ink:#E4E8ED; --soft:#BCC4CE; --muted:#8E98A4; --line:#2A3038;
-    --accent:#86B4E8; --tint:#18202A; --gold:#D6B160;
+    --paper:#0E1614; --surface:#151F1C; --ink:#E6EBE8; --ink-soft:#B6C2BD;
+    --muted:#849690; --line:#26332F; --accent:#5CBFA2; --gold:#C9A95C; --shadow:none;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121519; --ink:#E4E8ED; --soft:#BCC4CE; --muted:#8E98A4; --line:#2A3038;
-  --accent:#86B4E8; --tint:#18202A; --gold:#D6B160;
+  --paper:#0E1614; --surface:#151F1C; --ink:#E6EBE8; --ink-soft:#B6C2BD;
+  --muted:#849690; --line:#26332F; --accent:#5CBFA2; --gold:#C9A95C; --shadow:none;
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font:17px/1.65 Charter,"Bitstream Charter","Iowan Old Style","Palatino Linotype",Georgia,serif;
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:780px;margin:0 auto;padding:48px 20px 72px}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:2px}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-
-/* header */
-header{display:flex;gap:28px;align-items:center}
-header img{width:132px;height:auto;border-radius:4px;flex:none}
-h1{font-size:34px;line-height:1.15;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
-.title{margin:0;color:var(--soft);font-size:17px;line-height:1.45}
-.email{margin:8px 0 0;font-size:15px}
-.quick{display:flex;flex-wrap:wrap;gap:6px 8px;margin:26px 0 0;padding:0;list-style:none;font-size:14px}
-.quick a{display:inline-block;padding:4px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink)}
-.quick a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
-.quick a.cv{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
-.quick a.cv:hover{opacity:.9;color:var(--bg)}
-nav.toc{margin:22px 0 0;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase}
-nav.toc a{color:var(--muted)}
-nav.toc a:hover{color:var(--accent)}
-
-/* sections */
-section{margin-top:44px;scroll-margin-top:16px}
-h2{font-size:23px;font-weight:600;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid var(--accent);display:inline-block}
-h3{font-size:15px;font-weight:600;margin:24px 0 8px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-p{margin:0 0 14px}
-ul{margin:0 0 14px;padding-left:20px}
-li{margin:0 0 8px}
-.note{color:var(--muted);font-size:15px}
-.tag{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-
-.students{background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--accent);
-  border-radius:6px;padding:22px 24px 10px;margin-top:44px}
-.students h2{border:0;padding:0;margin-bottom:10px}
-.students dl{margin:0}
-.students dt{font-weight:600;margin-top:12px}
-.students dd{margin:2px 0 12px;color:var(--soft)}
-
-.pubs li{margin-bottom:12px;line-height:1.5}
-.pubs .v{font-weight:600;color:var(--ink)}
-.pubs .au{color:var(--muted);font-size:15px}
-
-table.rows{border-collapse:collapse;width:100%;font-size:16px}
-table.rows td{padding:6px 0;vertical-align:top;border-bottom:1px solid var(--line)}
-table.rows tr:last-child td{border-bottom:0}
-table.rows td.y{width:72px;color:var(--muted);font-size:14px;padding-top:8px;font-variant-numeric:tabular-nums}
-
-footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
-
-@media (max-width:600px){
-  body{font-size:16px}
-  .wrap{padding:28px 16px 56px}
-  header{flex-direction:column;align-items:flex-start;gap:16px}
-  header img{width:110px}
-  h1{font-size:29px}
-  .students{padding:18px 16px 6px}
-  table.rows td.y{width:56px}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
 }
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.shell{max-width:1140px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:274px 1fr;gap:64px;align-items:start}
+
+/* ---------- identity rail ---------- */
+.rail{position:sticky;top:0;padding:56px 0 40px;display:flex;flex-direction:column;gap:24px}
+.portrait{width:150px;height:auto;border-radius:2px;display:block}
+.namemark h1{
+  font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:500;font-size:32px;
+  line-height:1.12;letter-spacing:-.015em;margin:0;text-wrap:balance;
+}
+.namemark .role{color:var(--ink-soft);font-size:14.5px;line-height:1.45;margin-top:10px}
+.namemark .role em{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--ink)}
+
+.roles{display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:var(--ink-soft);line-height:1.4}
+.roles div{padding-left:13px;position:relative}
+.roles div::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--accent)}
+
+nav{display:flex;flex-direction:column;gap:1px;border-top:1px solid var(--line);padding-top:16px}
+nav a{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:5px 0;border:0}
+nav a:hover{color:var(--accent);border:0}
+
+.contact{border-top:1px solid var(--line);padding-top:16px;font-size:13.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:5px}
+.contact .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13.5px}
+
+/* ---------- main ---------- */
+main{padding:56px 0 96px;max-width:690px;display:flex;flex-direction:column;gap:54px}
+section{scroll-margin-top:32px}
+h2{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+p{margin:0 0 15px;color:var(--ink-soft)}
+p:last-child{margin-bottom:0}
+.lede{font-family:Newsreader,Georgia,serif;font-size:20.5px;line-height:1.55;color:var(--ink);margin-bottom:18px;text-wrap:pretty}
+
+.themes{display:flex;flex-direction:column;margin:0}
+.theme{display:grid;grid-template-columns:184px 1fr;gap:24px;padding:15px 0;border-bottom:1px solid var(--line)}
+.theme:last-child{border-bottom:0}
+.theme dt{font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.4}
+.theme dd{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+.pubs{display:flex;flex-direction:column}
+.pub{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pub:last-child{border-bottom:0}
+.yr{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.pub .t{font-size:15px;color:var(--ink);line-height:1.45;font-weight:500;text-wrap:pretty}
+.pub .m{font-size:13.5px;color:var(--muted);line-height:1.5;margin-top:3px}
+.pub .m .venue{color:var(--ink-soft)}
+.cites{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.award{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.sep{color:var(--line)}
+.more{margin-top:20px;font-size:14px}
+
+.stack{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.row:last-child{border-bottom:0}
+.row .yr{padding-top:1px}
+.row .d{color:var(--ink-soft);line-height:1.5}
+.row .d strong{color:var(--ink);font-weight:600}
+.row .d em{font-style:italic}
+
+.grants{display:flex;flex-direction:column}
+.grant{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid var(--line)}
+.grant:last-child{border-bottom:0}
+.amt{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums;padding-top:2px}
+.grant .d{font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+.grant .d strong{color:var(--ink);font-weight:600}
+.grant .d .sub{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+
+.modules{display:flex;flex-direction:column;gap:5px;font-size:14.5px;color:var(--ink-soft)}
+.modules code{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);margin-right:8px}
+.tgroup{margin-bottom:16px}
+.tgroup:last-child{margin-bottom:0}
+.tgroup h3{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 7px}
+
+.callout{background:var(--surface);border:1px solid var(--line);border-left:2px solid var(--accent);padding:22px 24px;box-shadow:var(--shadow)}
+.callout p{margin-bottom:12px}
+.callout p:last-child{margin-bottom:0}
+.projects{display:flex;flex-direction:column;gap:9px;margin:14px 0}
+.projects div{font-size:14.5px;color:var(--ink);padding-left:15px;position:relative;line-height:1.45}
+.projects div::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
+
+footer{border-top:1px solid var(--line);padding-top:18px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--muted)}
+
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr;gap:0;padding:0 22px}
+  .rail{position:static;padding:40px 0 28px;border-bottom:1px solid var(--line)}
+  .portrait{width:120px}
+  nav{flex-flow:row wrap;gap:16px}
+  nav a{padding:0}
+  main{padding:36px 0 72px;gap:44px}
+  .theme{grid-template-columns:1fr;gap:3px}
+  .pub,.row{grid-template-columns:44px 1fr;gap:14px}
+  .grant{grid-template-columns:68px 1fr;gap:14px}
+  .namemark h1{font-size:29px}
+  .lede{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- additions (Oct 2026) ---------- */
+.rail{max-height:100vh;overflow-y:auto;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.roles a{color:inherit;border-bottom:1px solid var(--line)}
+.roles a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.links a.cv{font-weight:600}
+.note{font-size:14px;color:var(--muted)}
+h3.pgroup{font-size:14px;font-weight:600;color:var(--ink);margin:26px 0 2px}
+.pub .m a.award:hover{border-bottom-color:var(--gold)}
+#about p a{border-bottom-color:transparent}
+@media (max-width:860px){.rail{max-height:none;overflow:visible}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="shell">
 
-<header>
-  <img src="photo.jpg" alt="Portrait of Stefanos Leonardos" width="132" height="171">
-  <div>
-    <h1>Stefanos Leonardos</h1>
-    <p class="title">Senior Lecturer in Machine Learning<br>Department of Informatics, <a href="https://www.kcl.ac.uk/informatics">King's College London</a></p>
-    <p class="email sans"><a href="mailto:stefanos.leonardos@kcl.ac.uk">stefanos.leonardos@kcl.ac.uk</a> · Bush House (S)5.13, Strand Campus</p>
-  </div>
-</header>
+  <aside class="rail">
+    <img class="portrait" src="photo.jpg" alt="Stefanos Leonardos" width="420" height="543">
 
-<ul class="quick sans" aria-label="Links">
-  <li><a class="cv" href="cv.pdf">CV (pdf)</a></li>
-  <li><a href="https://www.kcl.ac.uk/people/stefanos-leonardos">King's profile</a></li>
-  <li><a href="https://maasaikcl.notion.site/maasaikcl">MAASAI Lab</a></li>
-  <li><a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ">Google Scholar</a></li>
-  <li><a href="https://dblp.org/pid/192/1237.html">DBLP</a></li>
-  <li><a href="https://openreview.net/profile?id=~Stefanos_Leonardos1">OpenReview</a></li>
-  <li><a href="https://orcid.org/0000-0002-1498-1490">ORCID</a></li>
-  <li><a href="https://www.linkedin.com/in/stefanos-leonardos/">LinkedIn</a></li>
-  <li><a href="https://github.com/stefanosleonardos">GitHub</a></li>
-</ul>
+    <div class="namemark">
+      <h1>Stefanos Leonardos</h1>
+      <div class="role">Senior Lecturer in Machine Learning<br>Department of Informatics, <em>King's College London</em></div>
+    </div>
 
-<nav class="toc sans" aria-label="Sections">
-  <a href="#about">About</a>
-  <a href="#students">For students</a>
-  <a href="#teaching">Teaching</a>
-  <a href="#publications">Publications</a>
-  <a href="#funding">Funding</a>
-  <a href="#awards">Awards</a>
-  <a href="#talks">Talks</a>
-  <a href="#service">Service</a>
-</nav>
+    <div class="roles">
+      <div>Head, Knowledge Representation, Reasoning &amp; Multi-Agent Systems group</div>
+      <div>Lead, <a href="https://maasaikcl.notion.site/maasaikcl" target="_blank" rel="noopener">MAASAI research lab</a></div>
+      <div><a href="https://www.kcl.ac.uk/ai" target="_blank" rel="noopener">King's Institute for AI</a></div>
+      <div>Elected member, <a href="https://www.kcl.ac.uk/about/governance-policies-and-procedures/committees/academic-board" target="_blank" rel="noopener">Academic Board</a></div>
+    </div>
 
-<section id="about">
-  <p>Hello and welcome to my personal website!</p>
-  <p>I am a <a href="https://www.kcl.ac.uk/people/stefanos-leonardos">Senior Lecturer in Machine Learning</a> in the <a href="https://www.kcl.ac.uk/informatics">Department of Informatics</a> at King's College London, where I head the Knowledge Representation, Reasoning and Multi-Agent Systems research group and am very fortunate to lead <a href="https://maasaikcl.notion.site/maasaikcl">the MAASAI research lab</a> (not the <a href="https://en.wikipedia.org/wiki/Maasai_people">Maasai</a>). I previously co-led the <a href="https://www.kcl.ac.uk/research/finance-hub-informatics">Economics and Finance Hub</a> together with <a href="https://www.kcl.ac.uk/people/bart-de-keijzer">Bart de Keijzer</a> and <a href="https://www.kcl.ac.uk/people/carmine-ventre">Carmine Ventre</a>, and I am a member of the <a href="https://www.kcl.ac.uk/ai">King's Institute for Artificial Intelligence</a> and an elected member of <a href="https://www.kcl.ac.uk/about/governance-policies-and-procedures/committees/academic-board">King's Academic Board</a>.</p>
-  <p>My research is on artificial intelligence and game theory, particularly multi-agent learning, reinforcement learning and the strategic behaviour of intelligent systems, with applications in financial markets, decentralised finance and cryptoeconomics.</p>
-  <p>Before coming to London in July 2022, I spent four very memorable years as a research fellow at the <a href="https://www.sutd.edu.sg/">Singapore University of Technology and Design</a>, hosted by <a href="https://people.sutd.edu.sg/~georgios/">Georgios Piliouras</a>. I earned my PhD in game theory from the mathematics department of the <a href="https://en.uoa.gr/">National and Kapodistrian University of Athens</a>, where I was very fortunate to be advised by <a href="https://www.researchgate.net/profile/Costis_Melolidakis">Costis Melolidakis</a>. I also hold an MSc in Statistics and Operations Research from the same university, a Diploma in Mathematics from <a href="https://www.tu-darmstadt.de/">TU Darmstadt</a>, and a BSc (Hons) in Business Information Systems from the <a href="https://www.aueb.gr/en">Athens University of Economics and Business</a>.</p>
-  <p>For my full list of publications, please see my [<a href="cv.pdf">CV</a>] or [<a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ">Google Scholar</a>].</p>
-</section>
 
-<section id="students" class="students">
-  <h2>For students</h2>
-  <dl>
-    <dt>Office hours</dt>
-    <dd>September–December 2026: Mondays 15:00–16:00, Bush House (S)5.13 (right before the 7CCSMQMF tutorial). Please <a href="mailto:stefanos.leonardos@kcl.ac.uk">email me</a> before attending.</dd>
+    <div class="contact">
+      <span class="k">Contact</span>
+      <a href="mailto:stefanos.leonardos@kcl.ac.uk">stefanos.leonardos@kcl.ac.uk</a>
+      <span>Bush House (S)5.13, Strand Campus</span>
+      <span class="k" style="margin-top:10px">Links</span>
+      <div class="links">
+        <a class="cv" href="cv.pdf" target="_blank" rel="noopener">CV (pdf)</a>
+        <a href="https://www.kcl.ac.uk/people/stefanos-leonardos" target="_blank" rel="noopener">King's profile</a>
+        <a href="https://maasaikcl.notion.site/maasaikcl" target="_blank" rel="noopener">MAASAI Lab</a>
+        <a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://dblp.org/pid/192/1237.html" target="_blank" rel="noopener">DBLP</a>
+        <a href="https://openreview.net/profile?id=~Stefanos_Leonardos1" target="_blank" rel="noopener">OpenReview</a>
+        <a href="https://orcid.org/0000-0002-1498-1490" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/stefanos-leonardos/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/stefanosleonardos" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
 
-    <dt>PhD positions</dt>
-    <dd>There are currently no funded PhD positions available. However, if you are interested in research in game theory, multi-agent systems, learning in games, reinforcement learning, AI for finance and/or cryptoeconomics (mechanism design and incentives), write to me about externally or self-funded PhD opportunities. Two projects are currently advertised through the department: <em>Multi-Agent Learning with Large Language Models</em> and <em>AI and Machine Learning for Financial Markets</em>. See the department's <a href="https://www.kcl.ac.uk/informatics/postgraduate/research-degrees">research degrees page</a> for how to apply. When you write, please attach your CV and transcripts and tell me, in a few lines, which problem (or paper of mine) caught your interest and why.</dd>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#students-info">For students</a>
+      <a href="#teaching">Teaching &amp; supervision</a>
+      <a href="#publications">Publications</a>
+      <a href="#funding">Funding</a>
+      <a href="#awards">Awards</a>
+      <a href="#talks">Talks</a>
+      <a href="#service">Service</a>
+    </nav>
+  </aside>
 
-    <dt>MSc and BSc theses</dt>
-    <dd>Students taking the respective project modules can find my thesis topics in the module's project list; they cover similar topics to those above. I supervise around 15 MSc theses each year across the Data Science and Computational Finance MSc programmes, and I welcome industry collaborations and student-proposed projects. For any questions, please email me.</dd>
+  <main>
 
-    <dt>Research groups and seminars</dt>
-    <dd>Have a look at the <a href="https://maasaikcl.notion.site/maasaikcl">MAASAI lab</a> for our current members and projects, and come along to the <a href="https://www.kcl.ac.uk/events/series/blockchain-research-seminar-series">KCL Blockchain Research Seminar</a>, the <a href="https://sites.google.com/view/aligs">Algorithmic Learning in Games Seminar</a> or the <a href="https://www.kcl.ac.uk/informatics-research-showcase-1">Informatics Research Showcase</a>.</dd>
-  </dl>
-</section>
+    <section id="about">
+      <p class="lede">Hello and welcome to my personal website!</p>
+      <p>I am a <a href="https://www.kcl.ac.uk/people/stefanos-leonardos" target="_blank" rel="noopener">Senior Lecturer in Machine Learning</a> in the <a href="https://www.kcl.ac.uk/informatics" target="_blank" rel="noopener">Department of Informatics</a> at King's College London, where I head the Knowledge Representation, Reasoning and Multi-Agent Systems research group and am very fortunate to lead <a href="https://maasaikcl.notion.site/maasaikcl" target="_blank" rel="noopener">the MAASAI research lab</a> (not the <a href="https://en.wikipedia.org/wiki/Maasai_people" target="_blank" rel="noopener">Maasai</a>). I previously co-led the <a href="https://www.kcl.ac.uk/research/finance-hub-informatics" target="_blank" rel="noopener">Economics and Finance Hub</a> together with <a href="https://www.kcl.ac.uk/people/bart-de-keijzer" target="_blank" rel="noopener">Bart de Keijzer</a> and <a href="https://www.kcl.ac.uk/people/carmine-ventre" target="_blank" rel="noopener">Carmine Ventre</a>, and I am a member of the <a href="https://www.kcl.ac.uk/ai" target="_blank" rel="noopener">King's Institute for Artificial Intelligence</a> and an elected member of <a href="https://www.kcl.ac.uk/about/governance-policies-and-procedures/committees/academic-board" target="_blank" rel="noopener">King's Academic Board</a>.</p>
+      <p>My research is on artificial intelligence and game theory, particularly multi-agent learning, reinforcement learning and the strategic behaviour of intelligent systems, with applications in financial markets, decentralised finance and cryptoeconomics.</p>
+      <p>Before joining King's in July 2022, I was a research fellow at the <a href="https://www.sutd.edu.sg/" target="_blank" rel="noopener">Singapore University of Technology and Design</a>, hosted by <a href="https://people.sutd.edu.sg/~georgios/" target="_blank" rel="noopener">Georgios Piliouras</a>. I hold a PhD in game theory, advised by <a href="https://www.researchgate.net/profile/Costis_Melolidakis" target="_blank" rel="noopener">Costis Melolidakis</a>, and an MSc in Statistics and Operations Research from the <a href="https://en.uoa.gr/" target="_blank" rel="noopener">National and Kapodistrian University of Athens</a>, a Diploma in Mathematics from <a href="https://www.tu-darmstadt.de/" target="_blank" rel="noopener">TU Darmstadt</a>, and a BSc (Hons) in Business Information Systems from the <a href="https://www.aueb.gr/en" target="_blank" rel="noopener">Athens University of Economics and Business</a>.</p>
+      <p>For my full list of publications, please see my [<a href="cv.pdf" target="_blank" rel="noopener">CV</a>] or [<a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>].</p>
+    </section>
 
-<section id="teaching">
-  <h2>Teaching</h2>
-  <h3>Finance (MSc)</h3>
-  <ul>
-    <li>7CCSMQMF Quantitative Methods in Finance</li>
-    <li>7CCSMSCF Scientific Computing in Finance</li>
-    <li>7CCSMAMF Agent-Based Modelling in Finance (co-lead)</li>
-  </ul>
-  <h3>Machine learning (MSc)</h3>
-  <ul>
-    <li>7CCSMPNN Pattern Recognition, Neural Networks and Deep Learning (co-lead)</li>
-    <li>7CCSMGPR Impact Accelerator with Amazon Web Services <span class="tag">BRILLIANT 2025 award</span></li>
-    <li>Algorithmic Game Theory (at SUTD)</li>
-  </ul>
-  <p class="note">I am a Fellow of <a href="https://advance-he.ac.uk/fellowship/">Advance HE</a> (FHEA) and a personal tutor to 40+ undergraduate and postgraduate students.</p>
+    <section id="students-info">
+      <h2>For students</h2>
+      <div class="callout">
+        <p><strong>Office hours:</strong> September–December 2026, Mondays 15:00–16:00, Bush House (S)5.13 (right before the 7CCSMQMF tutorial). Please <a href="mailto:stefanos.leonardos@kcl.ac.uk">email me</a> before attending.</p>
+        <p><strong>PhD positions:</strong> There are currently no funded PhD positions available. However, if you are interested in research in game theory, multi-agent systems, learning in games, reinforcement learning, AI for finance and/or cryptoeconomics (mechanism design and incentives), write to me about externally or self-funded PhD opportunities. Two projects are currently advertised through the department:</p>
+        <div class="projects">
+          <div>Multi-Agent Learning with Large Language Models</div>
+          <div>AI and Machine Learning for Financial Markets</div>
+        </div>
+        <p>See the department's <a href="https://www.kcl.ac.uk/informatics/postgraduate/research-degrees" target="_blank" rel="noopener">research degrees page</a> for how to apply. When you write, please attach your CV and transcripts and tell me, in a few lines, which problem (or paper of mine) caught your interest and why.</p>
+        <p><strong>MSc and BSc theses:</strong> Students taking the respective project modules can find my thesis topics in the module's project list; they cover similar topics to those above. I supervise around 15 MSc theses each year across the Data Science and Computational Finance MSc programmes, and I welcome industry collaborations and student-proposed projects. For any questions, please email me.</p>
+        <p><strong>Research groups and seminars:</strong> Have a look at the <a href="https://maasaikcl.notion.site/maasaikcl" target="_blank" rel="noopener">MAASAI lab</a> for our current members and projects, and come along to the <a href="https://www.kcl.ac.uk/events/series/blockchain-research-seminar-series" target="_blank" rel="noopener">KCL Blockchain Research Seminar</a>, the <a href="https://sites.google.com/view/aligs" target="_blank" rel="noopener">Algorithmic Learning in Games Seminar</a> or the <a href="https://www.kcl.ac.uk/informatics-research-showcase-1" target="_blank" rel="noopener">Informatics Research Showcase</a>.</p>
+      </div>
+    </section>
 
-  <h3>PhD students</h3>
-  <table class="rows">
-    <tr><td class="y">2026</td><td>Hong Jun Lee: multi-agent learning in AI ecosystems</td></tr>
-    <tr><td class="y">2025</td><td>Chloe M. Jassur: AI in finance, quantum computing</td></tr>
-    <tr><td class="y">2024</td><td>Charalambos Kleitsikas: phase shifting and crash-aware cryptocurrency trading</td></tr>
-    <tr><td class="y">2024</td><td>Zihao Li: distributional shift in offline reinforcement learning</td></tr>
-    <tr><td class="y">2024</td><td>Zishan Rahman: model-driven engineering in finance</td></tr>
-    <tr><td class="y">2023</td><td>Fei Wu: proposer-builder separation and MEV in Ethereum</td></tr>
-    <tr><td class="y">2023</td><td>Rajan Duggal: deep RL for option pricing, hedging and insurance</td></tr>
-    <tr><td class="y">2023</td><td>Asad Rahman: financial model construction and validation with ML</td></tr>
-    <tr><td class="y">2023</td><td>Desmond Chan: mechanisms with heterogeneous rationality</td></tr>
-    <tr><td class="y">2022</td><td>Stefan Roesch: incentivising cooperation in self-interested agents</td></tr>
-    <tr><td class="y">2022</td><td>Usman Islam: compositional approaches to multi-agent learning</td></tr>
-  </table>
-</section>
+    <section id="teaching">
+      <h2>Teaching &amp; supervision</h2>
+      <div class="tgroup">
+        <h3>Finance (MSc)</h3>
+        <div class="modules">
+          <div><code>7CCSMQMF</code>Quantitative Methods in Finance</div>
+          <div><code>7CCSMSCF</code>Scientific Computing in Finance</div>
+          <div><code>7CCSMAMF</code>Agent-Based Modelling in Finance (co-lead)</div>
+        </div>
+      </div>
+      <div class="tgroup">
+        <h3>Machine learning (MSc)</h3>
+        <div class="modules">
+          <div><code>7CCSMPNN</code>Pattern Recognition, Neural Networks and Deep Learning (co-lead)</div>
+          <div><code>7CCSMGPR</code>Impact Accelerator with Amazon Web Services <span class="award">BRILLIANT 2025 award</span></div>
+          <div><code>SUTD&nbsp;&nbsp;&nbsp;</code>Algorithmic Game Theory</div>
+        </div>
+      </div>
+      <p class="note">Fellow of <a href="https://advance-he.ac.uk/fellowship/" target="_blank" rel="noopener">Advance HE</a> (FHEA) · personal tutor to 40+ undergraduate and postgraduate students.</p>
 
-<section id="publications">
-  <h2>Selected publications</h2>
-  <p class="note">Not actively updated. For the full list, see <a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ">Google Scholar</a>, <a href="https://dblp.org/pid/192/1237.html">DBLP</a>, <a href="https://openreview.net/profile?id=~Stefanos_Leonardos1">OpenReview</a> or my <a href="cv.pdf">CV</a>.</p>
+      <div class="tgroup">
+        <h3>PhD students</h3>
+        <div class="stack">
+          <div class="row"><div class="yr">2026</div><div class="d"><strong>Hong Jun Lee</strong>: multi-agent learning in AI ecosystems</div></div>
+          <div class="row"><div class="yr">2025</div><div class="d"><strong>Chloe M. Jassur</strong>: AI in finance, quantum computing</div></div>
+          <div class="row"><div class="yr">2024</div><div class="d"><strong>Charalambos Kleitsikas</strong>: phase shifting and crash-aware cryptocurrency trading</div></div>
+          <div class="row"><div class="yr">2024</div><div class="d"><strong>Zihao Li</strong>: distributional shift in offline reinforcement learning</div></div>
+          <div class="row"><div class="yr">2024</div><div class="d"><strong>Zishan Rahman</strong>: model-driven engineering in finance</div></div>
+          <div class="row"><div class="yr">2023</div><div class="d"><strong>Fei Wu</strong>: proposer-builder separation and MEV in Ethereum</div></div>
+          <div class="row"><div class="yr">2023</div><div class="d"><strong>Rajan Duggal</strong>: deep RL for option pricing, hedging and insurance</div></div>
+          <div class="row"><div class="yr">2023</div><div class="d"><strong>Asad Rahman</strong>: financial model construction and validation with ML</div></div>
+          <div class="row"><div class="yr">2023</div><div class="d"><strong>Desmond Chan</strong>: mechanisms with heterogeneous rationality</div></div>
+          <div class="row"><div class="yr">2022</div><div class="d"><strong>Stefan Roesch</strong>: incentivising cooperation in self-interested agents</div></div>
+          <div class="row"><div class="yr">2022</div><div class="d"><strong>Usman Islam</strong>: compositional approaches to multi-agent learning</div></div>
+        </div>
+      </div>
+    </section>
 
-  <h3>Multi-agent learning and AI</h3>
-  <ul class="pubs">
-    <li><span class="v">ICAIF 2026:</span> <a href="https://arxiv.org/abs/2609.17788">SAiFE-gym: Model-Based Environments for Automated Market Making with Concentrated Liquidity</a> <span class="au">with G. Chionas, C. Kleitsikas, L. Sánchez-Betancourt, C. Ventre</span></li>
-    <li><span class="v">AAAI 2026 (LaMAS):</span> <a href="https://openreview.net/forum?id=iffKu4q0xr">STAR-MARL: LLM-based Sub-task Curricula Design</a> <span class="au">with Z. Li, D. Qiao, A. Rahman, Y. Du, S. V. Albrecht</span></li>
-    <li><span class="v">arXiv 2025:</span> <a href="https://arxiv.org/abs/2508.04344">Performative Market Making</a> <span class="au">with C. Kleitsikas, C. Ventre</span></li>
-    <li><span class="v">ICLR 2024:</span> <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/921ac785fa9edc73cacaf2664f43d234-Abstract-Conference.html">Beating Price of Anarchy and Gradient Descent without Regret in Potential Games</a> <span class="au">with I. Sakos, S. Stavroulakis, W. Overman, I. Panageas, G. Piliouras</span></li>
-    <li><span class="v">AAMAS 2024:</span> <a href="https://kclpure.kcl.ac.uk/portal/en/publications/selfishness-level-induces-cooperation-in-sequential-social-dilemm/">Selfishness Level Induces Cooperation in Sequential Social Dilemmas</a> <span class="au">with S. Roesch, Y. Du</span></li>
-    <li><span class="v">NeurIPS 2023:</span> <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/e5b6eb1dbabff82838d5e99f62de37c8-Abstract-Conference.html">AlberDICE: Addressing Out-of-Distribution Joint Actions in Offline Multi-Agent RL</a> <span class="au">with D. E. Matsunaga, J. Lee, J. Yoon, P. Abbeel, K.-E. Kim</span></li>
-    <li><span class="v">ACM TEAC 2023:</span> <a href="https://dl.acm.org/doi/10.1145/3583782">Catastrophe by Design: A Mechanism to Destabilise Inefficient Locked-in Technologies</a> <span class="au">with I. Sakos, C. Courcoubetis, G. Piliouras</span> <span class="tag">Editors' choice</span></li>
-    <li><span class="v">ICLR 2022:</span> <a href="https://arxiv.org/abs/2106.01969">Global Convergence of Multi-Agent Policy Gradient in Markov Potential Games</a> <span class="au">with W. Overman, I. Panageas, G. Piliouras</span></li>
-    <li><span class="v">NeurIPS 2021:</span> <a href="https://proceedings.neurips.cc/paper_files/paper/2021/hash/dd1970fb03877a235d530476eb727dab-Abstract.html">Exploration-Exploitation in Multi-Agent Competition: Convergence with Bounded Rationality</a> <span class="au">with G. Piliouras, K. Spendlove</span> <span class="tag">Spotlight</span></li>
-    <li><span class="v">AAAI 2021:</span> <a href="https://ojs.aaai.org/index.php/AAAI/article/view/17343">Exploration-Exploitation in Multi-Agent Learning: Catastrophe Theory Meets Game Theory</a> <span class="au">with G. Piliouras</span> <a class="tag" href="https://aaai.org/conference/aaai/aaai-21/aaai-outstanding-and-distinguished-papers/">Outstanding Paper Award</a><br><span class="au">Extended version in <a href="https://www.sciencedirect.com/science/article/pii/S0004370221002046">Artificial Intelligence</a> · videos: <a href="https://www.youtube.com/watch?v=KAaaUnhYfwo">featured</a>, <a href="https://www.youtube.com/watch?v=A3LuJcf1LYE">AAAI talk</a></span></li>
-  </ul>
+    <section id="publications">
+      <h2>Selected publications</h2>
+      <p class="note">Not actively updated. For the full list, see <a href="https://scholar.google.com/citations?user=PtiGrVsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://dblp.org/pid/192/1237.html" target="_blank" rel="noopener">DBLP</a>, <a href="https://openreview.net/profile?id=~Stefanos_Leonardos1" target="_blank" rel="noopener">OpenReview</a> or my <a href="cv.pdf" target="_blank" rel="noopener">CV</a>.</p>
 
-  <h3>Blockchains, Ethereum and decentralised finance</h3>
-  <ul class="pubs">
-    <li><span class="v">ECAI 2025:</span> <a href="https://journals.sagepub.com/doi/abs/10.3233/FAIA251209">From Competition to Centralization: The Oligopoly in Ethereum Block Building Auctions</a> <span class="au">with F. Wu, T. Thiery, C. Ventre</span></li>
-    <li><span class="v">ICAIF 2024:</span> <a href="https://dl.acm.org/doi/10.1145/3677052.3698629">To Compete or Collude: Bidding Incentives in Ethereum Block Building Auctions</a> <span class="au">with F. Wu, T. Thiery, C. Ventre</span></li>
-    <li><span class="v">IEEE ICBC 2024:</span> <a href="https://arxiv.org/abs/2312.14510">Strategic Bidding Wars in On-chain Auctions</a> <span class="au">with F. Wu, T. Thiery, C. Ventre</span></li>
-    <li><span class="v">FC 2023:</span> <a href="https://fc23.ifca.ai/preproceedings/127.pdf">Optimality Despite Chaos in Fee Markets</a> <span class="au">with D. Reijsbergen, B. Monnot, G. Piliouras</span></li>
-    <li><span class="v">IEEE Blockchain 2021:</span> <a href="https://ieeexplore.ieee.org/document/9680496">Transaction Fees on a Honeymoon: Ethereum's EIP-1559 One Month Later</a> <span class="au">with D. Reijsbergen, S. Sridhar, B. Monnot, S. Skoulakis, G. Piliouras</span></li>
-    <li><span class="v">ACM AFT 2021:</span> <a href="https://dl.acm.org/doi/10.1145/3479722.3480993">Dynamical Analysis of the EIP-1559 Ethereum Fee Market</a> <span class="au">with B. Monnot, D. Reijsbergen, S. Skoulakis, G. Piliouras</span></li>
-    <li><span class="v">IEEE TEM 2020:</span> <a href="https://ieeexplore.ieee.org/abstract/document/9082016">PREStO: A Systematic Framework for Blockchain Consensus Protocols</a> <span class="au">with D. Reijsbergen, G. Piliouras</span> <span class="tag">Best Paper Award</span></li>
-    <li><span class="v">Decentralized 2020:</span> <a href="https://www.mdpi.com/1999-5903/12/3/59">Do Cryptocurrency Prices Camouflage Latent Economic Effects?</a> <span class="au">with C. Koki, G. Piliouras</span> <span class="tag">Best Paper Award</span></li>
-    <li><span class="v">IEEE ICBC 2019:</span> <a href="https://ieeexplore.ieee.org/document/8751290">Weighted Voting on Blockchains: Improving Consensus in Proof of Stake Protocols</a> <span class="au">with D. Reijsbergen, G. Piliouras</span> <span class="tag">Best Paper Award</span></li>
-    <li><span class="v">IEEE ICBC 2019:</span> <a href="https://ieeexplore.ieee.org/document/8751241">Incentives in Ethereum's Hybrid Casper Protocol</a> <span class="au">with V. Buterin, D. Reijsbergen, G. Piliouras</span></li>
-    <li><span class="v">MARBLE 2019:</span> <a href="https://link.springer.com/chapter/10.1007/978-3-030-37110-4_13">Oceanic Games: Centralization Risks and Incentives in Blockchain Mining</a> <span class="au">with N. Leonardos, G. Piliouras</span> <span class="tag">Best Paper Award</span></li>
-  </ul>
-</section>
+      <h3 class="pgroup">Multi-agent learning and AI</h3>
+      <div class="pubs">
+        <div class="pub"><div class="yr">2026</div><div><div class="t"><a href="https://arxiv.org/abs/2609.17788" target="_blank" rel="noopener">SAiFE-gym: Model-Based Environments for Automated Market Making with Concentrated Liquidity</a></div><div class="m">with G. Chionas, C. Kleitsikas, L. Sánchez-Betancourt, C. Ventre · <span class="venue">ICAIF</span></div></div></div>
+        <div class="pub"><div class="yr">2026</div><div><div class="t"><a href="https://openreview.net/forum?id=iffKu4q0xr" target="_blank" rel="noopener">STAR-MARL: LLM-based Sub-task Curricula Design</a></div><div class="m">with Z. Li, D. Qiao, A. Rahman, Y. Du, S. V. Albrecht · <span class="venue">AAAI LaMAS Workshop</span></div></div></div>
+        <div class="pub"><div class="yr">2025</div><div><div class="t"><a href="https://arxiv.org/abs/2508.04344" target="_blank" rel="noopener">Performative Market Making</a></div><div class="m">with C. Kleitsikas, C. Ventre · <span class="venue">arXiv</span></div></div></div>
+        <div class="pub"><div class="yr">2024</div><div><div class="t"><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/921ac785fa9edc73cacaf2664f43d234-Abstract-Conference.html" target="_blank" rel="noopener">Beating Price of Anarchy and Gradient Descent without Regret in Potential Games</a></div><div class="m">with I. Sakos, S. Stavroulakis, W. Overman, I. Panageas, G. Piliouras · <span class="venue">ICLR</span></div></div></div>
+        <div class="pub"><div class="yr">2024</div><div><div class="t"><a href="https://kclpure.kcl.ac.uk/portal/en/publications/selfishness-level-induces-cooperation-in-sequential-social-dilemm/" target="_blank" rel="noopener">Selfishness Level Induces Cooperation in Sequential Social Dilemmas</a></div><div class="m">with S. Roesch, Y. Du · <span class="venue">AAMAS</span></div></div></div>
+        <div class="pub"><div class="yr">2023</div><div><div class="t"><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/e5b6eb1dbabff82838d5e99f62de37c8-Abstract-Conference.html" target="_blank" rel="noopener">AlberDICE: Addressing Out-of-Distribution Joint Actions in Offline Multi-Agent RL</a></div><div class="m">with D. E. Matsunaga, J. Lee, J. Yoon, P. Abbeel, K.-E. Kim · <span class="venue">NeurIPS</span></div></div></div>
+        <div class="pub"><div class="yr">2023</div><div><div class="t"><a href="https://dl.acm.org/doi/10.1145/3583782" target="_blank" rel="noopener">Catastrophe by Design: A Mechanism to Destabilise Inefficient Locked-in Technologies</a></div><div class="m">with I. Sakos, C. Courcoubetis, G. Piliouras · <span class="venue">ACM TEAC</span> · <span class="award">Editors' choice</span></div></div></div>
+        <div class="pub"><div class="yr">2022</div><div><div class="t"><a href="https://arxiv.org/abs/2106.01969" target="_blank" rel="noopener">Global Convergence of Multi-Agent Policy Gradient in Markov Potential Games</a></div><div class="m">with W. Overman, I. Panageas, G. Piliouras · <span class="venue">ICLR</span></div></div></div>
+        <div class="pub"><div class="yr">2021</div><div><div class="t"><a href="https://proceedings.neurips.cc/paper_files/paper/2021/hash/dd1970fb03877a235d530476eb727dab-Abstract.html" target="_blank" rel="noopener">Exploration-Exploitation in Multi-Agent Competition: Convergence with Bounded Rationality</a></div><div class="m">with G. Piliouras, K. Spendlove · <span class="venue">NeurIPS</span> · <span class="award">Spotlight</span></div></div></div>
+        <div class="pub"><div class="yr">2021</div><div><div class="t"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17343" target="_blank" rel="noopener">Exploration-Exploitation in Multi-Agent Learning: Catastrophe Theory Meets Game Theory</a></div><div class="m">with G. Piliouras · <span class="venue">AAAI</span> · <a class="award" href="https://aaai.org/conference/aaai/aaai-21/aaai-outstanding-and-distinguished-papers/" target="_blank" rel="noopener">Outstanding Paper Award</a><br>Extended version in <a href="https://www.sciencedirect.com/science/article/pii/S0004370221002046" target="_blank" rel="noopener">Artificial Intelligence</a> · videos: <a href="https://www.youtube.com/watch?v=KAaaUnhYfwo" target="_blank" rel="noopener">featured</a>, <a href="https://www.youtube.com/watch?v=A3LuJcf1LYE" target="_blank" rel="noopener">AAAI talk</a></div></div></div>
+      </div>
 
-<section id="funding">
-  <h2>Funding</h2>
-  <ul>
-    <li><a href="https://ukfin.network/saife-a-sandbox-for-ai-powered-trading-in-decentralised-financial-markets/">SAiFE: a sandbox for AI-powered trading in decentralised financial markets</a>, <a href="https://ukfin.network/saife-a-sandbox-for-ai-powered-trading-in-decentralised-financial-markets/">UKFIN+ network</a> (UKRI), £100,000, 2025–26. Principal Investigator, with <a href="https://www.turintech.ai/">TurinTech</a>. Outputs: [<a href="https://arxiv.org/abs/2608.19389">arXiv</a>], [<a href="https://arxiv.org/abs/2609.17788">ICAIF</a>].</li>
-    <li>Non-fungible token (NFT) based rewarding mechanisms, <a href="https://www.exp.science/science-fellows">Exponential Science Foundation</a>, $20,000, 2025–26. Science Fellow. Output: [<a href="https://arxiv.org/abs/2609.13064">arXiv</a>].</li>
-  </ul>
-</section>
+      <h3 class="pgroup">Blockchains, Ethereum and decentralised finance</h3>
+      <div class="pubs">
+        <div class="pub"><div class="yr">2025</div><div><div class="t"><a href="https://journals.sagepub.com/doi/abs/10.3233/FAIA251209" target="_blank" rel="noopener">From Competition to Centralization: The Oligopoly in Ethereum Block Building Auctions</a></div><div class="m">with F. Wu, T. Thiery, C. Ventre · <span class="venue">ECAI</span></div></div></div>
+        <div class="pub"><div class="yr">2024</div><div><div class="t"><a href="https://dl.acm.org/doi/10.1145/3677052.3698629" target="_blank" rel="noopener">To Compete or Collude: Bidding Incentives in Ethereum Block Building Auctions</a></div><div class="m">with F. Wu, T. Thiery, C. Ventre · <span class="venue">ICAIF</span></div></div></div>
+        <div class="pub"><div class="yr">2024</div><div><div class="t"><a href="https://arxiv.org/abs/2312.14510" target="_blank" rel="noopener">Strategic Bidding Wars in On-chain Auctions</a></div><div class="m">with F. Wu, T. Thiery, C. Ventre · <span class="venue">IEEE ICBC</span></div></div></div>
+        <div class="pub"><div class="yr">2023</div><div><div class="t"><a href="https://fc23.ifca.ai/preproceedings/127.pdf" target="_blank" rel="noopener">Optimality Despite Chaos in Fee Markets</a></div><div class="m">with D. Reijsbergen, B. Monnot, G. Piliouras · <span class="venue">Financial Cryptography</span></div></div></div>
+        <div class="pub"><div class="yr">2021</div><div><div class="t"><a href="https://ieeexplore.ieee.org/document/9680496" target="_blank" rel="noopener">Transaction Fees on a Honeymoon: Ethereum's EIP-1559 One Month Later</a></div><div class="m">with D. Reijsbergen, S. Sridhar, B. Monnot, S. Skoulakis, G. Piliouras · <span class="venue">IEEE Blockchain</span></div></div></div>
+        <div class="pub"><div class="yr">2021</div><div><div class="t"><a href="https://dl.acm.org/doi/10.1145/3479722.3480993" target="_blank" rel="noopener">Dynamical Analysis of the EIP-1559 Ethereum Fee Market</a></div><div class="m">with B. Monnot, D. Reijsbergen, S. Skoulakis, G. Piliouras · <span class="venue">ACM AFT</span></div></div></div>
+        <div class="pub"><div class="yr">2020</div><div><div class="t"><a href="https://ieeexplore.ieee.org/abstract/document/9082016" target="_blank" rel="noopener">PREStO: A Systematic Framework for Blockchain Consensus Protocols</a></div><div class="m">with D. Reijsbergen, G. Piliouras · <span class="venue">IEEE TEM</span> · <span class="award">Best Paper Award</span></div></div></div>
+        <div class="pub"><div class="yr">2020</div><div><div class="t"><a href="https://www.mdpi.com/1999-5903/12/3/59" target="_blank" rel="noopener">Do Cryptocurrency Prices Camouflage Latent Economic Effects?</a></div><div class="m">with C. Koki, G. Piliouras · <span class="venue">Decentralized</span> · <span class="award">Best Paper Award</span></div></div></div>
+        <div class="pub"><div class="yr">2019</div><div><div class="t"><a href="https://ieeexplore.ieee.org/document/8751290" target="_blank" rel="noopener">Weighted Voting on Blockchains: Improving Consensus in Proof of Stake Protocols</a></div><div class="m">with D. Reijsbergen, G. Piliouras · <span class="venue">IEEE ICBC</span> · <span class="award">Best Paper Award</span></div></div></div>
+        <div class="pub"><div class="yr">2019</div><div><div class="t"><a href="https://ieeexplore.ieee.org/document/8751241" target="_blank" rel="noopener">Incentives in Ethereum's Hybrid Casper Protocol</a></div><div class="m">with V. Buterin, D. Reijsbergen, G. Piliouras · <span class="venue">IEEE ICBC</span></div></div></div>
+        <div class="pub"><div class="yr">2019</div><div><div class="t"><a href="https://link.springer.com/chapter/10.1007/978-3-030-37110-4_13" target="_blank" rel="noopener">Oceanic Games: Centralization Risks and Incentives in Blockchain Mining</a></div><div class="m">with N. Leonardos, G. Piliouras · <span class="venue">MARBLE</span> · <span class="award">Best Paper Award</span></div></div></div>
+      </div>
+    </section>
 
-<section id="awards">
-  <h2>Awards</h2>
-  <table class="rows">
-    <tr><td class="y">2026</td><td>King's Education Award nomination</td></tr>
-    <tr><td class="y">2025</td><td>Outstanding <a href="https://lnkd.in/p/eekSeC8Y">Industry Engagement Award</a> (BRILLIANT 2025) for the AWS Impact Accelerator module</td></tr>
-    <tr><td class="y">2024</td><td>Fellow of <a href="https://advance-he.ac.uk/fellowship/">Advance HE</a> (FHEA); King's Education Award nomination</td></tr>
-    <tr><td class="y">2023</td><td>Featured Article (Editors' Choice), <a href="https://dl.acm.org/doi/10.1145/3583782">ACM TEAC</a>; King's Recognition Award</td></tr>
-    <tr><td class="y">2021</td><td><a href="https://aaai.org/conference/aaai/aaai-21/aaai-outstanding-and-distinguished-papers/">Outstanding Paper Award</a>, AAAI-21; Spotlight paper, NeurIPS-21; Best Paper Award, IEEE Transactions on Engineering Management</td></tr>
-    <tr><td class="y">2020</td><td>SUTD Outstanding Teaching Assistant Award; <a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/11/future-internet_certificate_best-paper-award-winners.pdf">Best Paper Award</a>, 3rd Annual Decentralized Conference</td></tr>
-    <tr><td class="y">2019</td><td><a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/06/best-paper-award.pdf">Best Paper Award</a>, IEEE ICBC; <a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/06/bpa_marble-1.pdf">Best Paper Award</a>, MARBLE; Best Poster Award, SUTD Research Fest</td></tr>
-    <tr><td class="y">2013</td><td>Doctoral scholarship, <a href="https://www.onassis.org/initiatives/scholarships">Alexander S. Onassis Foundation</a></td></tr>
-  </table>
-</section>
+    <section id="funding">
+      <h2>Funding</h2>
+      <div class="grants">
+        <div class="grant"><div class="amt">£100k</div><div class="d"><strong><a href="https://ukfin.network/saife-a-sandbox-for-ai-powered-trading-in-decentralised-financial-markets/" target="_blank" rel="noopener">SAiFE: a sandbox for AI-powered trading in decentralised financial markets</a></strong><span class="sub">UKFIN+ network (UKRI) · Principal Investigator, with <a href="https://www.turintech.ai/" target="_blank" rel="noopener">TurinTech</a> · 2025–26 · outputs: [<a href="https://arxiv.org/abs/2608.19389" target="_blank" rel="noopener">arXiv</a>], [<a href="https://arxiv.org/abs/2609.17788" target="_blank" rel="noopener">ICAIF</a>]</span></div></div>
+        <div class="grant"><div class="amt">$20k</div><div class="d"><strong>Non-fungible token (NFT) based rewarding mechanisms</strong><span class="sub"><a href="https://www.exp.science/science-fellows" target="_blank" rel="noopener">Exponential Science Foundation</a> · Science Fellow · 2025–26 · output: [<a href="https://arxiv.org/abs/2609.13064" target="_blank" rel="noopener">arXiv</a>]</span></div></div>
+      </div>
+    </section>
 
-<section id="talks">
-  <h2>Selected talks and events</h2>
-  <table class="rows">
-    <tr><td class="y">2026</td><td>SIAM Conference on Optimization (OP26), minisymposium on Optimization, Learning &amp; Games; <a href="https://lnkd.in/p/e8NZdrNC">AI for Finance Workshop</a>, King's College London (co-organiser and panellist)</td></tr>
-    <tr><td class="y">2025</td><td>Isaac Newton Institute (<a href="https://www.newton.ac.uk/event/sclw01/">reinforcement learning</a>); Algorithms, Learning &amp; Games (<a href="https://sites.google.com/view/alga25/home-page">ALGA</a>); <a href="https://europt2025.org/">EUROPT</a>; House of Lords with Polkadot; <a href="https://sites.google.com/view/nash75/participants">Nash75</a> at Oxford</td></tr>
-    <tr><td class="y">2024</td><td>Queen's University Belfast, DLT and blockchain initiative (panellist); <a href="https://wine2024.org/#tutorials">WINE</a> tutorial on game-theoretic aspects of blockchains</td></tr>
-    <tr><td class="y">2023</td><td>University of Oxford; LSE; University of Leeds; NUS <a href="https://ims.nus.edu.sg/events/games-learning-and-networks/">Institute for Mathematical Sciences</a>; <a href="https://sites.google.com/view/workshop-alga/home">ALGA</a></td></tr>
-  </table>
-</section>
+    <section id="awards">
+      <h2>Awards</h2>
+      <div class="stack">
+        <div class="row"><div class="yr">2026</div><div class="d">King's Education Award nomination</div></div>
+        <div class="row"><div class="yr">2025</div><div class="d"><strong><a href="https://lnkd.in/p/eekSeC8Y" target="_blank" rel="noopener">Outstanding Industry Engagement Award</a></strong> (BRILLIANT 2025), AWS Impact Accelerator module</div></div>
+        <div class="row"><div class="yr">2024</div><div class="d"><strong>Fellow</strong>, <a href="https://advance-he.ac.uk/fellowship/" target="_blank" rel="noopener">Advance HE</a> (FHEA) <span class="sep">·</span> King's Education Award nomination</div></div>
+        <div class="row"><div class="yr">2023</div><div class="d"><strong>Featured Article (Editors' Choice)</strong>, <a href="https://dl.acm.org/doi/10.1145/3583782" target="_blank" rel="noopener">ACM TEAC</a> <span class="sep">·</span> King's Recognition Award</div></div>
+        <div class="row"><div class="yr">2021</div><div class="d"><strong><a href="https://aaai.org/conference/aaai/aaai-21/aaai-outstanding-and-distinguished-papers/" target="_blank" rel="noopener">Outstanding Paper Award</a></strong>, AAAI <span class="sep">·</span> <strong>Spotlight</strong>, NeurIPS <span class="sep">·</span> <strong>Best Paper Award</strong>, IEEE Transactions on Engineering Management</div></div>
+        <div class="row"><div class="yr">2020</div><div class="d"><strong><a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/11/future-internet_certificate_best-paper-award-winners.pdf" target="_blank" rel="noopener">Best Paper Award</a></strong>, Decentralized Conference <span class="sep">·</span> SUTD Outstanding Teaching Assistant Award</div></div>
+        <div class="row"><div class="yr">2019</div><div class="d"><strong><a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/06/best-paper-award.pdf" target="_blank" rel="noopener">Best Paper Award</a></strong>, IEEE ICBC <span class="sep">·</span> <strong><a href="https://stefanosleonardos.wordpress.com/wp-content/uploads/2019/06/bpa_marble-1.pdf" target="_blank" rel="noopener">Best Paper Award</a></strong>, MARBLE <span class="sep">·</span> Best Poster Award, SUTD Research Fest</div></div>
+        <div class="row"><div class="yr">2013</div><div class="d">Doctoral scholarship, <a href="https://www.onassis.org/initiatives/scholarships" target="_blank" rel="noopener">Alexander S. Onassis Foundation</a></div></div>
+      </div>
+    </section>
 
-<section id="service">
-  <h2>Service</h2>
-  <table class="rows">
-    <tr><td class="y">Area chair</td><td><a href="https://icml.cc/">ICML</a>, <a href="https://iclr.cc/Conferences/2026">ICLR</a>, <a href="https://neurips.cc/Conferences/2024/ProgramCommittee">NeurIPS</a>, <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI</a>, <a href="https://www.ecai2024.eu/">ECAI</a></td></tr>
-    <tr><td class="y">PC</td><td><a href="https://ijcai-23.org/conference-committee/">IJCAI</a>, <a href="https://ec24.sigecom.org/program-committee/">ACM EC</a>, <a href="https://aamas2023.soton.ac.uk/organisation/programme-committee/">AAMAS</a>, <a href="https://fc25.ifca.ai/index.html">FC</a>, <a href="https://aft.ifca.ai/aft26/committees.html">AFT</a></td></tr>
-    <tr><td class="y">Editor</td><td><a href="https://dl.acm.org/doi/10.1145/3649882">ACM DLT</a> special issue on mathematical research for blockchain economy (2022); <a href="https://www.marble-conference.org/">MARBLE</a> proceedings, <a href="https://link.springer.com/conference/marble">Springer Nature</a>, 2023–26 (programme co-chair)</td></tr>
-    <tr><td class="y">King's</td><td>Head, Knowledge Representation, Reasoning and Multi-Agent Systems group; <a href="https://www.kcl.ac.uk/about/governance-policies-and-procedures/committees/academic-board">Academic Board</a> (elected); organiser of the <a href="https://www.kcl.ac.uk/events/series/blockchain-research-seminar-series">Blockchain Research Seminar</a>, <a href="https://www.kcl.ac.uk/informatics-research-showcase-1">Informatics Research Showcase</a> and departmental seminar</td></tr>
-  </table>
-</section>
+    <section id="talks">
+      <h2>Selected talks &amp; events</h2>
+      <div class="stack">
+        <div class="row"><div class="yr">2026</div><div class="d">SIAM Conference on Optimization (OP26), minisymposium on Optimization, Learning &amp; Games <span class="sep">·</span> <a href="https://lnkd.in/p/e8NZdrNC" target="_blank" rel="noopener">AI for Finance Workshop</a>, King's (co-organiser, panellist)</div></div>
+        <div class="row"><div class="yr">2025</div><div class="d">Isaac Newton Institute (<a href="https://www.newton.ac.uk/event/sclw01/" target="_blank" rel="noopener">reinforcement learning</a>) <span class="sep">·</span> <a href="https://sites.google.com/view/alga25/home-page" target="_blank" rel="noopener">ALGA</a> <span class="sep">·</span> <a href="https://europt2025.org/" target="_blank" rel="noopener">EUROPT</a> <span class="sep">·</span> House of Lords with Polkadot <span class="sep">·</span> <a href="https://sites.google.com/view/nash75/participants" target="_blank" rel="noopener">Nash75</a> at Oxford</div></div>
+        <div class="row"><div class="yr">2024</div><div class="d">Queen's University Belfast, DLT &amp; blockchain initiative (panellist) <span class="sep">·</span> <a href="https://wine2024.org/#tutorials" target="_blank" rel="noopener">WINE</a> tutorial on game-theoretic aspects of blockchains</div></div>
+        <div class="row"><div class="yr">2023</div><div class="d">University of Oxford <span class="sep">·</span> LSE <span class="sep">·</span> University of Leeds <span class="sep">·</span> NUS <a href="https://ims.nus.edu.sg/events/games-learning-and-networks/" target="_blank" rel="noopener">IMS</a> <span class="sep">·</span> <a href="https://sites.google.com/view/workshop-alga/home" target="_blank" rel="noopener">ALGA</a></div></div>
+      </div>
+    </section>
 
-<footer class="sans">
-  <span>© Stefanos Leonardos · Last updated October 2026</span>
-  <span><a href="#about">Back to top ↑</a></span>
-</footer>
+    <section id="service">
+      <h2>Service</h2>
+      <div class="stack">
+        <div class="row"><div class="yr">Chair</div><div class="d"><strong>Area Chair</strong>: <a href="https://icml.cc/" target="_blank" rel="noopener">ICML</a>, <a href="https://iclr.cc/Conferences/2026" target="_blank" rel="noopener">ICLR</a>, <a href="https://neurips.cc/Conferences/2024/ProgramCommittee" target="_blank" rel="noopener">NeurIPS</a>, <a href="https://aaai.org/conference/aaai/aaai-25/" target="_blank" rel="noopener">AAAI</a>, <a href="https://www.ecai2024.eu/" target="_blank" rel="noopener">ECAI</a> <span class="sep">·</span> <strong>Programme co-chair</strong>: <a href="https://www.marble-conference.org/" target="_blank" rel="noopener">MARBLE</a></div></div>
+        <div class="row"><div class="yr">PC</div><div class="d"><a href="https://ijcai-23.org/conference-committee/" target="_blank" rel="noopener">IJCAI</a>, <a href="https://ec24.sigecom.org/program-committee/" target="_blank" rel="noopener">ACM EC</a>, <a href="https://aamas2023.soton.ac.uk/organisation/programme-committee/" target="_blank" rel="noopener">AAMAS</a>, <a href="https://fc25.ifca.ai/index.html" target="_blank" rel="noopener">FC</a>, <a href="https://aft.ifca.ai/aft26/committees.html" target="_blank" rel="noopener">AFT</a></div></div>
+        <div class="row"><div class="yr">Editor</div><div class="d"><a href="https://dl.acm.org/doi/10.1145/3649882" target="_blank" rel="noopener">ACM DLT</a> special issue on mathematical research for blockchain economy (2022) <span class="sep">·</span> <a href="https://link.springer.com/conference/marble" target="_blank" rel="noopener">Springer MARBLE proceedings</a>, 2023–26</div></div>
+        <div class="row"><div class="yr">KCL</div><div class="d">Head, KR, Reasoning &amp; MAS group <span class="sep">·</span> <a href="https://www.kcl.ac.uk/about/governance-policies-and-procedures/committees/academic-board" target="_blank" rel="noopener">Academic Board</a> (elected) <span class="sep">·</span> organiser: <a href="https://www.kcl.ac.uk/events/series/blockchain-research-seminar-series" target="_blank" rel="noopener">Blockchain Research Seminar</a>, <a href="https://www.kcl.ac.uk/informatics-research-showcase-1" target="_blank" rel="noopener">Informatics Research Showcase</a>, departmental seminar</div></div>
+      </div>
+    </section>
 
+    <footer>Last updated October 2026</footer>
+
+  </main>
 </div>
 </body>
 </html>
